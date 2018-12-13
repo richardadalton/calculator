@@ -1,0 +1,37 @@
+
+td{
+    width: 25%;
+    height: 10vh;
+    border: 1px solid black;
+    text-align: center;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#display {
+    width: 50%;
+    height: 50px;
+    border: 1px solid black;
+    padding: 5px;
+    font-size: 30px;
+    text-align: right;
+}
+
+
+.cancel {
+    background-color: darkred;
+    color: white;
+}
+
+.modifier {
+    background-color: gold;
+}
+
+.digit {
+    background-color: lightgrey;
+    color: black;
+}
+
+.operator {
+    background-color: darkgrey;
+}
