@@ -1,5 +1,14 @@
+.container {
+    width: 30%;
+    margin: 0 auto;
+}
 
-td{
+table {
+    min-width: 400px;
+    min-height: 500px;
+}
+
+td {
     width: 25%;
     height: 10vh;
     border: 1px solid black;

@@ -7,6 +7,7 @@ initial_state = {
     handle_number: first_number,
     handle_zero: do_nothing,
     handle_operator: do_nothing,
+    handle_decimal: append_decimal,
 };
 
 
@@ -22,9 +23,6 @@ function refresh_display() {
 }
 
 refresh_display();
-
-
-
 
 
 // Event Handlers
@@ -52,15 +50,18 @@ function handle_operator_click(val) {
     alert(val);
 }
 
-
-function handle_function_click(val) {
-    alert(val);
+function handle_percent_click() {
+    alert('%');
 }
 
-function handle_modifier_click(val) {
-    alert(val);
+function handle_decimal_click() {
+    state.handle_decimal();
+    refresh_display();
 }
 
+function handle_equal_click() {
+    alert('=');
+}
 
 
 // State Modifiers
@@ -89,8 +90,15 @@ function reset_state() {
 function first_number(value) {
     state.display_value = value;
     state.handle_number = append_number;
+    state.handle_decimal = append_decimal;
 }
 
 function append_number(value) {
     state.display_value += value;
+}
+
+function append_decimal() {
+    state.display_value += '.';
+    state.handle_number = append_number;
+    state.handle_decimal = do_nothing();
 }

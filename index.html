@@ -14,40 +14,42 @@
 </style>
 <h1>calculator</h1>
 
-<table style="width:50%">
-    <tr>
-        <td id="display" class="display" colspan="4">0</td>
-    </tr>
-    <tr>
-        <td class="cancel" onclick="handle_cancel_click()">AC</td>
-        <td class="modifier" onclick="handle_negate_click()">+/-</td>
-        <td class="modifier" onclick="click_modifier('%')">%</td>
-        <td class="operator" onclick="click_operator('/')">/</td>
-    </tr>
-    <tr>
-        <td class="digit" onclick="handle_number_click('7')">7</td>
-        <td class="digit" onclick="handle_number_click('8')">8</td>
-        <td class="digit" onclick="handle_number_click('9')">9</td>
-        <td class="operator" onclick="click_operator('*')">x</td>
-    </tr>
-    <tr>
-        <td class="digit" onclick="handle_number_click('4')">4</td>
-        <td class="digit" onclick="handle_number_click('5')">5</td>
-        <td class="digit" onclick="handle_number_click('6')">6</td>
-        <td class="operator" onclick="click_operator('-')">-</td>
-    </tr>
-    <tr>
-        <td class="digit" onclick="handle_number_click('1')">1</td>
-        <td class="digit" onclick="handle_number_click('2')">2</td>
-        <td class="digit" onclick="handle_number_click('3')">3</td>
-        <td class="operator" onclick="click_operator('+')">+</td>
-    </tr>
-    <tr>
-        <td class="digit" onclick="handle_zero_click('0')">0</td>
-        <td class="digit" onclick="click_modifier('.')">.</td>
-        <td class="operator" onclick="click_function('=')" colspan="2">=</td>
-    </tr>
-</table>
+<div class="container">
+        <table>
+            <tr>
+                <td id="display" class="display" colspan="4">0</td>
+            </tr>
+            <tr>
+                <td class="cancel" onclick="handle_cancel_click()">AC</td>
+                <td class="modifier" onclick="handle_negate_click()">+/-</td>
+                <td class="modifier" onclick="handle_percent_click()">%</td>
+                <td class="operator" onclick="handle_operator_click('/')">/</td>
+            </tr>
+            <tr>
+                <td class="digit" onclick="handle_number_click('7')">7</td>
+                <td class="digit" onclick="handle_number_click('8')">8</td>
+                <td class="digit" onclick="handle_number_click('9')">9</td>
+                <td class="operator" onclick="handle_operator_click('*')">x</td>
+            </tr>
+            <tr>
+                <td class="digit" onclick="handle_number_click('4')">4</td>
+                <td class="digit" onclick="handle_number_click('5')">5</td>
+                <td class="digit" onclick="handle_number_click('6')">6</td>
+                <td class="operator" onclick="handle_operator_click('-')">-</td>
+            </tr>
+            <tr>
+                <td class="digit" onclick="handle_number_click('1')">1</td>
+                <td class="digit" onclick="handle_number_click('2')">2</td>
+                <td class="digit" onclick="handle_number_click('3')">3</td>
+                <td class="operator" onclick="handle_operator_click('+')">+</td>
+            </tr>
+            <tr>
+                <td class="digit" onclick="handle_zero_click('0')">0</td>
+                <td class="digit" onclick="handle_decimal_click()">.</td>
+                <td class="operator" onclick="handle_equal_click()" colspan="2">=</td>
+            </tr>
+        </table>
+</div>
 
 <script type="text/javascript" src="calculator/calculator.js"></script>
 
