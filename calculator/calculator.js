@@ -48,7 +48,6 @@ function handle_zero_click(val) {
 
 function handle_operator_click(val) {
     state.handle_operator()
-    alert(val);
 }
 
 function handle_percent_click() {
@@ -83,8 +82,16 @@ function negate_value() {
 function first_number(value) {
     state.display_value = value;
     state.handle_number = append_number;
+    state.handle_operator = apply_operator;
     state.handle_decimal = append_decimal;
     state.handle_negate = negate_value;
+}
+
+function apply_operator() {
+    state.negative = false;
+    state.handle_number = first_number;
+    state.handle_decimal = do_nothing;
+    return;
 }
 
 function append_number(value) {
