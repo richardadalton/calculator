@@ -3,7 +3,7 @@ initial_state = {
     negative: false,
 
     handle_cancel: reset_state,
-    handle_negate: make_negative,
+    handle_negate: do_nothing,
     handle_number: first_number,
     handle_zero: do_nothing,
     handle_operator: do_nothing,
@@ -47,6 +47,7 @@ function handle_zero_click(val) {
 }
 
 function handle_operator_click(val) {
+    state.handle_operator()
     alert(val);
 }
 
@@ -69,28 +70,21 @@ function do_nothing() {
     return;
 }
 
-function make_negative() {
-    state.negative = true;
-    state.handle_negate = make_positive;
-    return;
-}
-
-function make_positive() {
-    state.negative = false;
-    state.handle_negate = make_negative;
-    return;
-}
-
-
 function reset_state() {
     state = Object.create(initial_state);
     refresh_display();
+}
+
+function negate_value() {
+    state.negative = !state.negative;
+    return;
 }
 
 function first_number(value) {
     state.display_value = value;
     state.handle_number = append_number;
     state.handle_decimal = append_decimal;
+    state.handle_negate = negate_value;
 }
 
 function append_number(value) {
