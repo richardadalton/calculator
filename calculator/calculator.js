@@ -2,7 +2,7 @@ initial_state = {
     value: 0,
     display_value: "0",
     negative: false,
-    operator: "",
+    operator: null,
 
     handle_cancel: reset_state,
     handle_negate: do_nothing,
@@ -93,6 +93,12 @@ function first_number(value) {
 }
 
 function apply_operator(val) {
+    if (state.operator) {
+        expression = state.value.toString() + state.operator + state.display_value;
+        state.value = eval(expression);
+        state.display_value = state.value.toString();
+    }
+
     state.operator = val;
     state.value = Number(state.display_value);
     state.negative = false;
@@ -103,7 +109,6 @@ function apply_operator(val) {
 
 function apply_equal() {
     expression = state.value.toString() + state.operator + state.display_value;
-    alert(expression);
     state.value = eval(expression);
     state.display_value = state.value.toString();
     state.negative = false;
