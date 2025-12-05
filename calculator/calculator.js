@@ -18,11 +18,7 @@ let state = Object.create(initial_state);
 
 function refresh_display() {
     elem = document.getElementById('display');
-    if (state.negative) {
-        elem.innerHTML = "-" + state.display_value;
-    } else {
-        elem.innerHTML = state.display_value;
-    }
+    elem.innerHTML = state.display_value;
 }
 
 refresh_display();
@@ -45,7 +41,7 @@ function handle_number_click(val) {
 }
 
 function handle_zero_click(val) {
-    state.handle_zero();
+    state.handle_zero(val);
     refresh_display();
 }
 
@@ -81,6 +77,9 @@ function reset_state() {
 
 function negate_value() {
     state.negative = !state.negative;
+    state.display_value = state.display_value * -1;
+    console.log(state.value)
+    console.log(state.display_value)
     return;
 }
 
@@ -90,6 +89,7 @@ function first_number(value) {
     state.handle_operator = apply_operator;
     state.handle_decimal = append_decimal;
     state.handle_negate = negate_value;
+    state.handle_zero = append_number;
 }
 
 function apply_operator(val) {
@@ -109,9 +109,11 @@ function apply_operator(val) {
 
 function apply_equal() {
     expression = state.value.toString() + state.operator + state.display_value;
+    console.log(expression);
+
     state.value = eval(expression);
     state.display_value = state.value.toString();
-    state.negative = false;
+    state.negative = state.value < 0;
     state.handle_number = first_number;
     state.handle_decimal = do_nothing;
     return;
