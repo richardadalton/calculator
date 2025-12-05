@@ -20,33 +20,33 @@
                 <td id="display" class="display" colspan="4">0</td>
             </tr>
             <tr>
-                <td class="cancel" onclick="handle_cancel_click()">AC</td>
-                <td class="modifier" onclick="handle_negate_click()">+/-</td>
-                <td class="modifier" onclick="handle_percent_click()">%</td>
-                <td class="operator" onclick="handle_operator_click('/')">/</td>
+                <td id="btn_cancel" class="cancel" onclick="handle_cancel_click()">AC</td>
+                <td id="btn_negate" class="modifier" onclick="handle_negate_click()">+/-</td>
+                <td id="btn_percent" class="modifier" onclick="handle_percent_click()">%</td>
+                <td id="btn_divide" class="operator" onclick="handle_operator_click('/')">/</td>
             </tr>
             <tr>
-                <td class="digit" onclick="handle_number_click('7')">7</td>
-                <td class="digit" onclick="handle_number_click('8')">8</td>
-                <td class="digit" onclick="handle_number_click('9')">9</td>
-                <td class="operator" onclick="handle_operator_click('*')">x</td>
+                <td id="btn_digit7" class="digit" onclick="handle_number_click('7')">7</td>
+                <td id="btn_digit8" class="digit" onclick="handle_number_click('8')">8</td>
+                <td id="btn_digit9" class="digit" onclick="handle_number_click('9')">9</td>
+                <td id="btn_multiply" class="operator" onclick="handle_operator_click('*')">x</td>
             </tr>
             <tr>
-                <td class="digit" onclick="handle_number_click('4')">4</td>
-                <td class="digit" onclick="handle_number_click('5')">5</td>
-                <td class="digit" onclick="handle_number_click('6')">6</td>
-                <td class="operator" onclick="handle_operator_click('-')">-</td>
+                <td id="btn_digit4" class="digit" onclick="handle_number_click('4')">4</td>
+                <td id="btn_digit5" class="digit" onclick="handle_number_click('5')">5</td>
+                <td id="btn_digit6" class="digit" onclick="handle_number_click('6')">6</td>
+                <td id="btn_subtract" class="operator" onclick="handle_operator_click('-')">-</td>
             </tr>
             <tr>
-                <td class="digit" onclick="handle_number_click('1')">1</td>
-                <td class="digit" onclick="handle_number_click('2')">2</td>
-                <td class="digit" onclick="handle_number_click('3')">3</td>
-                <td class="operator" onclick="handle_operator_click('+')">+</td>
+                <td id="btn_digit1" class="digit" onclick="handle_number_click('1')">1</td>
+                <td id="btn_digit2" class="digit" onclick="handle_number_click('2')">2</td>
+                <td id="btn_digit3" class="digit" onclick="handle_number_click('3')">3</td>
+                <td id="btn_add" class="operator" onclick="handle_operator_click('+')">+</td>
             </tr>
             <tr>
-                <td class="digit" onclick="handle_zero_click('0')">0</td>
-                <td class="digit" onclick="handle_decimal_click()">.</td>
-                <td class="operator" onclick="handle_equal_click()" colspan="2">=</td>
+                <td id="btn_digit0" class="digit" onclick="handle_zero_click('0')">0</td>
+                <td id="btn_decimal" class="digit" onclick="handle_decimal_click()">.</td>
+                <td id="btn_equal" class="operator" onclick="handle_equal_click()" colspan="2">=</td>
             </tr>
         </table>
 </div>
