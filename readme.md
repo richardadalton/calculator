@@ -1,5 +1,8 @@
 # Calculator
 
+## Live Demo
+A live demo of the calculator can be found [here](https://richardadalton.github.io/calculator/).
+
 ## About
 Calculator built with HTML, CSS and Javasscript. The purpose of this project is to create a simple calculator that can perform basic arithmetic operations such as addition, subtraction, multiplication, and division.
 An additional constraint is that the javascript code should contain no 'IF' statements.
