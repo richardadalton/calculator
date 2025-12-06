@@ -2,6 +2,7 @@
 
 ## Live Demo
 A live demo of the calculator can be found [here](https://richardadalton.github.io/calculator/).
+The calculator is not completed. There are a number of features that are yet to be implemented.
 
 ## About
 Calculator built with HTML, CSS and Javasscript. The purpose of this project is to create a simple calculator that can perform basic arithmetic operations such as addition, subtraction, multiplication, and division.
