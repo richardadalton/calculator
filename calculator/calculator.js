@@ -126,5 +126,6 @@ function append_number(value) {
 function append_decimal() {
     state.display_value += '.';
     state.handle_number = append_number;
+    state.handle_zero = append_number;
     state.handle_decimal = do_nothing();
 }
