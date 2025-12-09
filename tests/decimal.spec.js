@@ -12,3 +12,19 @@ test('Can append 0 immediately after a decimal place', async ({ page }) => {
     await page.locator('#btn_digit0').click();
     await expect(display).toHaveText('0.0');
 });
+
+test('Can append decimal immediately after 0', async ({ page }) => {
+    const display = page.locator('#display');
+    await page.locator('#btn_digit0').click();
+    await page.locator('#btn_decimal').click();
+    await expect(display).toHaveText('0.');
+});
+
+test('Can append decimal immediately after applying an operator', async ({ page }) => {
+    const display = page.locator('#display');
+    await page.locator('#btn_digit1').click();
+    await page.locator('#btn_digit0').click();
+    await page.locator('#btn_add').click();
+    await page.locator('#btn_decimal').click();
+    await expect(display).toHaveText('0.');
+});

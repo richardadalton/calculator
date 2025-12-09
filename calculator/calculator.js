@@ -1,7 +1,6 @@
 initial_state = {
     value: 0,
     display_value: "0",
-    negative: false,
     operator: null,
 
     handle_cancel: reset_state,
@@ -76,7 +75,6 @@ function reset_state() {
 }
 
 function negate_value() {
-    state.negative = !state.negative;
     state.display_value = state.display_value * -1;
     console.log(state.value)
     console.log(state.display_value)
@@ -101,9 +99,8 @@ function apply_operator(val) {
 
     state.operator = val;
     state.value = Number(state.display_value);
-    state.negative = false;
     state.handle_number = first_number;
-    state.handle_decimal = append_decimal;
+    state.handle_decimal = zero_decimal;
     return;
 }
 
@@ -113,7 +110,6 @@ function apply_equal() {
 
     state.value = eval(expression);
     state.display_value = state.value.toString();
-    state.negative = state.value < 0;
     state.handle_number = first_number;
     state.handle_decimal = do_nothing;
     return;
@@ -121,6 +117,13 @@ function apply_equal() {
 
 function append_number(value) {
     state.display_value += value;
+}
+
+function zero_decimal() {
+    state.display_value = '0.';
+    state.handle_number = append_number;
+    state.handle_zero = append_number;
+    state.handle_decimal = do_nothing();
 }
 
 function append_decimal() {
