@@ -96,8 +96,11 @@ function rhs_decimal() {
 }
 
 // Evaluation
+const operations = { '+': (a, b) => a + b, '-': (a, b) => a - b, '*': (a, b) => a * b, '/': (a, b) => a / b };
+function calculate(a, op, b) { return operations[op](Number(a), Number(b)); }
+
 function evaluate_and_continue(op) {
-    state.value = eval(state.value.toString() + state.operator + state.display_value);
+    state.value = calculate(state.value, state.operator, state.display_value);
     state.operator = op;
     state.display_value = state.value.toString();
     enter(post_operator);
@@ -106,13 +109,13 @@ function evaluate_and_continue(op) {
 function evaluate_and_end() {
     state.last_operator = state.operator;
     state.last_operand = state.display_value;
-    state.value = eval(state.value.toString() + state.operator + state.display_value);
+    state.value = calculate(state.value, state.operator, state.display_value);
     state.display_value = state.value.toString();
     enter(post_equal);
 }
 
 function repeat_equal() {
-    state.value = eval(state.value.toString() + state.last_operator + state.last_operand);
+    state.value = calculate(state.value, state.last_operator, state.last_operand);
     state.display_value = state.value.toString();
     enter(post_equal);
 }
@@ -129,7 +132,7 @@ function apply_rhs_percent() {
 
 function evaluate_rhs_percent() {
     const rhs = state.value * Number(state.display_value.slice(0, -1)) / 100;
-    state.value = eval(state.value.toString() + state.operator + rhs.toString());
+    state.value = calculate(state.value, state.operator, rhs);
     state.display_value = state.value.toString();
     enter(post_equal);
 }
